@@ -1,1 +1,9 @@
-<p>student works!</p>
+<input type="checkbox" [(ngModel)]="editMode">
+
+<section *ngIf="!editMode">
+  <p>{{ student?.firstName }}</p>
+</section>
+
+<section *ngIf="editMode && student">
+  <input #nameInput (keydown)="editFirstName(nameInput.value)" type="text" [value]="student?.firstName">
+</section>

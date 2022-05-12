@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { StudentService } from '../home/student.service';
+import { Student } from '../student';
 
 @Component({
   selector: 'app-student',
   templateUrl: './student.component.html',
   styleUrls: ['./student.component.css']
 })
-export class StudentComponent implements OnInit {
+export class StudentComponent {
+  editMode = false;
+  @Input() student: Student|null = null;
 
-  constructor() { }
+  constructor(private studentService: StudentService) {}
 
-  ngOnInit(): void {
+  editFirstName(firstName: string) {
+    const studentCopy = {...this.student} as Student;
+    studentCopy.firstName = firstName;
+    this.studentService.editStudent(studentCopy);
   }
-
 }
