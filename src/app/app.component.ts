@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Student } from './student';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'fmi-web-2022';
+  students: Student[] = [
+    {
+      firstName: 'Foo',
+      lastName: 'Bar',
+      bio: 'foo bar baz'
+    },
+    {
+      firstName: 'Qux',
+      lastName: 'Foo',
+      bio: 'bar baz foo'
+    },
+  ];
 }
